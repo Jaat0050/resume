@@ -5,61 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arjun Rana - Flutter Developer</title>
+    <meta name="description"
+        content="Resume of Arjun Rana - Flutter Developer with 3.6+ years experience delivering 15+ production apps in Fintech, Healthcare, E-commerce, and AI.">
     <style>
+        :root {
+            --primary: #005bb5;
+            --primary-dark: #004286;
+            --primary-light: #f0f7ff;
+            --text-dark: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --border-subtle: #cbd5e1;
+            --bg-card: #f8fafc;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 18px;
+            /* Base font increased by 3 more px */
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.65;
+            color: var(--text-body);
+            background: #f1f5f9;
+            padding: 24px 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 860px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
         }
 
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #0066cc 0%, #00bfff 100%);
-            color: white;
-            padding: 30px 40px;
+            background: linear-gradient(135deg, #005bb5 0%, #0072d6 100%);
+            color: #ffffff;
+            padding: 26px 36px 22px 36px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
+            font-size: 2.15em;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
         }
 
         .header .title {
-            font-size: 1.2em;
-            font-weight: 300;
-            margin-bottom: 15px;
-            opacity: 0.95;
+            font-size: 1.1em;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            margin-bottom: 12px;
+            opacity: 0.96;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.85em;
+            gap: 6px 14px;
+            font-size: 0.88em;
         }
 
+        .contact-info span,
         .contact-info a {
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            color: #ffffff;
             text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            opacity: 0.92;
+            transition: opacity 0.2s;
         }
 
         .contact-info a:hover {
@@ -67,437 +98,433 @@
             text-decoration: underline;
         }
 
+        .contact-info .separator {
+            opacity: 0.45;
+            font-size: 0.85em;
+        }
+
+        /* Main Content Layout */
         .content {
-            padding: 30px 40px;
+            padding: 24px 36px 28px 36px;
         }
 
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
         }
 
         .section-title {
-            font-size: 1.3em;
-            color: #0066cc;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2.5px solid #0066cc;
+            font-size: 1.08em;
+            color: var(--primary);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.6px;
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid var(--primary);
         }
 
+        /* Professional Summary */
         .summary {
             text-align: justify;
-            line-height: 1.6;
-            color: #555;
-            font-size: 0.95em;
+            font-size: 0.94em;
+            line-height: 1.68;
+            color: var(--text-body);
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .skill-category {
-            background: #f0f8ff;
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 3px solid #0066cc;
-        }
-
-        .skill-category h3 {
-            color: #0066cc;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .skill-category p {
-            font-size: 0.82em;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .experience-item {
-            margin-bottom: 22px;
-            padding-left: 18px;
-            border-left: 3px solid #e0e0e0;
-        }
-
-        .experience-header {
-            margin-bottom: 8px;
-        }
-
-        .job-title {
-            font-size: 1.05em;
-            color: #333;
+        .summary strong {
+            color: var(--text-dark);
             font-weight: 600;
         }
 
-        .company {
-            color: #0066cc;
+        /* Professional Skills List */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-left: 12px;
+            border-left: 3.5px solid var(--primary);
+        }
+
+        .skill-category-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .skill-content {
+            font-size: 0.88em;
+            line-height: 1.5;
+            color: var(--text-body);
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 22px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+            gap: 4px;
+        }
+
+        .job-title {
+            font-size: 1.02em;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .job-title .company {
+            color: var(--primary);
             font-weight: 600;
         }
 
         .duration {
-            color: #888;
+            color: var(--text-muted);
             font-size: 0.85em;
-            font-style: italic;
+            font-weight: 500;
         }
 
         .experience-item ul {
-            margin-left: 18px;
+            margin-left: 20px;
             margin-top: 8px;
         }
 
         .experience-item li {
-            margin-bottom: 6px;
-            color: #555;
-            line-height: 1.5;
-            font-size: 0.9em;
+            font-size: 0.91em;
+            color: var(--text-body);
+            line-height: 1.62;
+            margin-bottom: 7px;
         }
 
+        .experience-item li strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Project Highlights Box */
         .key-projects {
-            background: #f0f8ff;
-            padding: 12px;
+            background: var(--primary-light);
+            padding: 12px 16px;
             border-radius: 6px;
             margin-top: 10px;
+            border-left: 3px solid var(--primary);
         }
 
-        .key-projects h4 {
-            color: #0066cc;
-            margin-bottom: 8px;
-            font-size: 0.95em;
+        .key-projects-title {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.84em;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 6px;
         }
 
         .project-item {
-            margin-bottom: 7px;
-            font-size: 0.85em;
-            line-height: 1.4;
+            font-size: 0.88em;
+            line-height: 1.55;
+            color: var(--text-body);
+            margin-bottom: 6px;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
         }
 
         .project-item strong {
-            color: #333;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
-        .education-item {
-            margin-bottom: 12px;
-            padding: 12px;
-            background: #f0f8ff;
-            border-radius: 6px;
-        }
-
-        .education-item h3 {
-            color: #333;
-            margin-bottom: 4px;
-            font-size: 1em;
-        }
-
-        .education-details {
-            color: #666;
-            font-size: 0.88em;
-        }
-
-        .achievements-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .achievement-item {
-            background: #f0f8ff;
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid #0066cc;
-            font-size: 0.88em;
-            line-height: 1.5;
-        }
-
-        .soft-skills-list {
+        /* Single-line compact list items */
+        .compact-list {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 8px;
-            margin-top: 8px;
         }
 
-        .soft-skill-tag {
-            background: #f0f8ff;
-            color: #0066cc;
-            padding: 6px 14px;
-            border-radius: 18px;
-            font-size: 0.85em;
-            border: 1px solid #0066cc;
+        .compact-item {
+            font-size: 0.91em;
+            line-height: 1.58;
+            color: var(--text-body);
         }
 
-        .languages-list {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-top: 8px;
+        .compact-item strong {
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
-        .language-item {
-            background: #f0f8ff;
-            padding: 10px 18px;
-            border-radius: 6px;
-            border-left: 3px solid #0066cc;
-            font-size: 0.9em;
-        }
-
-        .language-item strong {
-            color: #0066cc;
-        }
-
-        .certifications-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .certification-item {
-            background: #f0f8ff;
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid #0066cc;
-        }
-
-        .certification-item h4 {
-            color: #333;
-            margin-bottom: 4px;
+        /* Inline separated text */
+        .inline-text {
             font-size: 0.92em;
+            line-height: 1.65;
+            color: var(--text-body);
         }
 
-        .certification-item p {
-            color: #666;
-            font-size: 0.82em;
+        .inline-text strong {
+            color: var(--text-dark);
         }
 
+        /* Floating Print / PDF Button */
         .download-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #0066cc;
-            color: white;
-            padding: 15px 30px;
+            bottom: 28px;
+            right: 28px;
+            background: linear-gradient(135deg, #005bb5 0%, #0072d6 100%);
+            color: #ffffff;
+            padding: 12px 22px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
-            transition: all 0.3s;
+            font-size: 0.9em;
+            box-shadow: 0 6px 20px rgba(0, 91, 181, 0.35);
+            transition: all 0.2s ease;
             z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
         }
 
         .download-btn:hover {
-            background: #0052a3;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 91, 181, 0.5);
+            background: #004c99;
+        }
+
+        .page-break-divider {
+            display: none;
+        }
+
+        /* ========================================================
+           PRINT STYLESHEET (PERFECT 2-PAGE BALANCED A4 LAYOUT)
+           ======================================================== */
+        @page {
+            size: A4 portrait;
+            margin: 6mm 8mm;
         }
 
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
-                background: white;
-                padding: 0;
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                color: #1e293b !important;
+                font-size: 15.3px !important;
+                line-height: 1.4 !important;
             }
 
             .container {
-                box-shadow: none;
-                max-width: 100%;
+                box-shadow: none !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                border-radius: 0 !important;
             }
 
             .download-btn {
-                display: none;
+                display: none !important;
             }
 
             .header {
-                padding: 15px 30px;
+                padding: 10px 16px 9px 16px !important;
+                background: #005bb5 !important;
+                color: #ffffff !important;
             }
 
             .header h1 {
-                font-size: 2em;
-                margin-bottom: 6px;
+                font-size: 1.75em !important;
+                margin-bottom: 1px !important;
+                color: #ffffff !important;
             }
 
             .header .title {
-                font-size: 1.1em;
-                margin-bottom: 12px;
+                font-size: 1.0em !important;
+                margin-bottom: 4px !important;
+                color: #ffffff !important;
             }
 
             .contact-info {
-                font-size: 0.75em;
-                gap: 12px;
+                font-size: 13.2px !important;
+                gap: 3px 9px !important;
+            }
+
+            .contact-info span,
+            .contact-info a {
+                color: #ffffff !important;
+                text-decoration: none !important;
             }
 
             .content {
-                padding: 20px 30px;
+                padding: 8px 14px !important;
             }
 
             .section {
-                margin-bottom: 20px;
-                page-break-inside: avoid;
+                margin-bottom: 12px !important;
+                page-break-inside: auto !important;
+                break-inside: auto !important;
             }
 
             .section-title {
-                font-size: 1.2em;
-                margin-bottom: 10px;
-                padding-bottom: 5px;
+                font-size: 1.02em !important;
+                margin-bottom: 4px !important;
+                padding-bottom: 1.5px !important;
+                border-bottom: 1.8px solid #005bb5 !important;
+                color: #005bb5 !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
             }
 
             .summary {
-                font-size: 0.88em;
-                line-height: 1.5;
+                font-size: 14px !important;
+                line-height: 1.40 !important;
             }
 
-            .skills-grid {
-                gap: 10px;
+            .skills-list {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 5px !important;
+                margin-top: 3px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
             }
 
-            .skill-category {
-                padding: 8px;
+            .skill-item {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1px !important;
+                padding-left: 8px !important;
+                border-left: 2.5px solid #005bb5 !important;
             }
 
-            .skill-category h3 {
-                font-size: 0.85em;
-                margin-bottom: 4px;
+            .skill-category-title {
+                font-size: 13.2px !important;
+                font-weight: 700 !important;
+                color: #005bb5 !important;
+                letter-spacing: 0.3px !important;
             }
 
-            .skill-category p {
-                font-size: 0.78em;
-                line-height: 1.3;
+            .skill-content {
+                font-size: 13.2px !important;
+                line-height: 1.34 !important;
+                color: #334155 !important;
             }
 
             .experience-item {
-                margin-bottom: 18px;
-                padding-left: 15px;
-            }
-
-            .experience-header {
-                margin-bottom: 6px;
+                margin-bottom: 7px !important;
             }
 
             .job-title {
-                font-size: 0.98em;
+                font-size: 14.7px !important;
             }
 
             .duration {
-                font-size: 0.8em;
+                font-size: 13.1px !important;
             }
 
             .experience-item ul {
-                margin-left: 15px;
-                margin-top: 6px;
+                margin-left: 14px !important;
+                margin-top: 2px !important;
             }
 
             .experience-item li {
-                margin-bottom: 5px;
-                font-size: 0.84em;
-                line-height: 1.4;
+                font-size: 13.6px !important;
+                line-height: 1.35 !important;
+                margin-bottom: 2px !important;
             }
 
             .key-projects {
-                padding: 10px;
-                margin-top: 8px;
+                padding: 4px 8px !important;
+                margin-top: 4px !important;
+                background: #f0f7ff !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
             }
 
-            .key-projects h4 {
-                margin-bottom: 6px;
-                font-size: 0.88em;
+            .key-projects-title {
+                font-size: 13.1px !important;
+                margin-bottom: 1px !important;
             }
 
             .project-item {
-                margin-bottom: 5px;
-                font-size: 0.8em;
-                line-height: 1.35;
+                font-size: 13.1px !important;
+                line-height: 1.32 !important;
+                margin-bottom: 2px !important;
             }
 
-            .education-item {
-                margin-bottom: 10px;
-                padding: 10px;
+            /* Natural, deterministic Page Break */
+            .page-break-divider {
+                display: block !important;
+                page-break-before: always !important;
+                break-before: page !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
-            .education-item h3 {
-                font-size: 0.92em;
-                margin-bottom: 3px;
+            .compact-item {
+                font-size: 14px !important;
+                line-height: 1.32 !important;
             }
 
-            .education-details {
-                font-size: 0.82em;
-            }
-
-            .certifications-list {
-                gap: 10px;
-            }
-
-            .certification-item {
-                padding: 10px;
-            }
-
-            .certification-item h4 {
-                font-size: 0.86em;
-                margin-bottom: 3px;
-            }
-
-            .certification-item p {
-                font-size: 0.78em;
-            }
-
-            .achievements-list {
-                gap: 10px;
-            }
-
-            .achievement-item {
-                padding: 10px;
-                font-size: 0.82em;
-                line-height: 1.4;
-            }
-
-            .soft-skills-list {
-                gap: 6px;
-                margin-top: 6px;
-            }
-
-            .soft-skill-tag {
-                padding: 5px 12px;
-                font-size: 0.8em;
-            }
-
-            .languages-list {
-                gap: 15px;
-                margin-top: 6px;
-            }
-
-            .language-item {
-                padding: 8px 15px;
-                font-size: 0.84em;
+            .inline-text {
+                font-size: 14px !important;
+                line-height: 1.36 !important;
             }
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px 6px;
+            }
+
+            .header {
+                padding: 22px 16px;
+            }
+
             .header h1 {
-                font-size: 1.8em;
-            }
-
-            .header .title {
-                font-size: 1em;
-            }
-
-            .contact-info {
-                font-size: 0.75em;
-                gap: 8px;
+                font-size: 1.75em;
             }
 
             .content {
-                padding: 20px;
+                padding: 18px 16px;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .skill-row {
+                flex-direction: column;
+                gap: 2px;
             }
 
-            .achievements-list {
-                grid-template-columns: 1fr;
+            .skill-category-label {
+                min-width: unset;
             }
 
-            .certifications-list {
-                grid-template-columns: 1fr;
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -505,84 +532,89 @@
 
 <body>
     <div class="container">
-        <div class="header">
+        <!-- ================= HEADER ================= -->
+        <header class="header">
             <h1>ARJUN RANA</h1>
-            <div class="title">Flutter Developer</div>
+            <div class="title">Flutter Developer | Mobile Architecture & AI Integration</div>
             <div class="contact-info">
                 <span>📞 +91 7417662218</span>
-                <span>|</span>
+                <span class="separator">|</span>
                 <a href="mailto:rana.arjun62000@gmail.com">📧 rana.arjun62000@gmail.com</a>
-                <span>|</span>
+                <span class="separator">|</span>
                 <a href="https://linkedin.com/in/arjun-rana-738503194/" target="_blank">🔗
-                    https://linkedin.com/in/arjun-rana-738503194</a>
-                <span>|</span>
-                <a href="https://github.com/Jaat0050" target="_blank">💻 https://github.com/Jaat0050</a>
-                <span>|</span>
-                <a href="https://arjun-rana-portfolio.netlify.app/" target="_blank">🌐
-                    https://arjun-rana-portfolio.netlify.app</a>
-                <span>|</span>
+                    linkedin.com/in/arjun-rana</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/Jaat0050" target="_blank">💻 github.com/Jaat0050</a>
+                <span class="separator">|</span>
+                <a href="https://arjun-rana-portfolio.netlify.app/" target="_blank">🌐 arjun-rana-portfolio</a>
+                <span class="separator">|</span>
                 <span>📍 Gurugram, Haryana</span>
             </div>
-        </div>
+        </header>
 
-        <div class="content">
-            <div class="section">
+        <!-- ================= MAIN BODY ================= -->
+        <main class="content">
+
+            <!-- ================= PAGE 1 ================= -->
+
+            <!-- PROFESSIONAL SUMMARY -->
+            <section class="section">
                 <h2 class="section-title">Professional Summary</h2>
                 <p class="summary">
-                    Flutter Developer with 3+ years of experience specializing in fintech, healthcare, and e-commerce
-                    solutions. Successfully delivered 15+ production apps across entertainment, healthcare, fintech, and
-                    e-commerce domains with 50,000+ active users. Expert in Flutter architecture, state management, and
-                    cloud integrations with proven team leadership experience managing cross-functional teams. Improved
-                    app performance by 60% and increased user ratings from 3.8 to 4.5 stars through optimization
-                    initiatives.
+                    <strong>Flutter Developer with 3.6+ years of experience</strong> building scalable, high-performance
+                    cross-platform mobile applications across <strong>Fintech, Healthcare, and E-commerce</strong>.
+                    Delivered <strong>15+ production applications</strong>, with a strong
+                    focus on building reliable, user-centric, and maintainable mobile solutions. Expertise in
+                    <strong>Flutter, Clean Architecture, BLoC, Riverpod</strong>, and offline-first architectures, with
+                    experience designing robust application workflows and scalable codebases. Skilled in <strong>AI/LLM
+                        integrations using OpenAI and Google Gemini</strong>, performance optimization, resilient API
+                    architecture, and technical leadership, with a proven ability to deliver complex production-ready
+                    applications.
                 </p>
-            </div>
+            </section>
 
-            <div class="section">
+            <!-- TECHNICAL SKILLS -->
+            <section class="section">
                 <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Mobile Development</h3>
-                        <p>Flutter, Dart, Android, iOS, Material Design, Custom Widgets, Animations</p>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-category-title">Mobile Development:</div>
+                        <div class="skill-content">Flutter, Dart, Cross-Platform Development (Android & iOS), Web,
+                            Windows Desktop, Responsive UI, Custom Widgets, Platform Channels</div>
                     </div>
-                    <div class="skill-category">
-                        <h3>State Management</h3>
-                        <p>Provider, BLoC, Riverpod, GetX</p>
+                    <div class="skill-item">
+                        <div class="skill-category-title">Architecture & State:</div>
+                        <div class="skill-content">Clean Architecture, MVVM, BLoC / Cubit, Riverpod, SOLID Principles,
+                            Repository Pattern, Offline-First Architecture</div>
                     </div>
-                    <div class="skill-category">
-                        <h3>Architecture</h3>
-                        <p>Clean Architecture, MVM, MVVM, Repository Pattern, SOLID Principles</p>
+                    <div class="skill-item">
+                        <div class="skill-category-title">Backend & Data:</div>
+                        <div class="skill-content">REST APIs, Dio, WebSockets, Firebase (Auth, Firestore, FCM), Hive,
+                            SQLite, Secure Storage, Caching & Error Handling</div>
                     </div>
-                    <div class="skill-category">
-                        <h3>Backend & APIs</h3>
-                        <p>REST APIs, Http, Dio, Node.js, WebSocket</p>
+                    <div class="skill-item">
+                        <div class="skill-category-title">AI & Intelligent Features:</div>
+                        <div class="skill-content">OpenAI API, Google Gemini API, LLM Integration, Multimodal AI, SSE
+                            Streaming, Prompt Engineering, Google ML Kit</div>
                     </div>
-                    <div class="skill-category">
-                        <h3>Firebase</h3>
-                        <p>Authentication, Firestore, Cloud Messaging, Analytics, Crashlytics</p>
+                    <div class="skill-item">
+                        <div class="skill-category-title">Performance & Engineering:</div>
+                        <div class="skill-content">Performance Optimization, Flutter DevTools, Memory Profiling, Lazy
+                            Loading, Widget Rebuild Optimization</div>
                     </div>
-                    <div class="skill-category">
-                        <h3>Database</h3>
-                        <p>Hive, SharedPreferences, Secure Storage, MongoDB</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Payment Integration</h3>
-                        <p>Razorpay, Stripe, CashFree, In App Purchase</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Version Control & DevOps</h3>
-                        <p>Git, GitHub, GitLab, Bitbucket, CI/CD</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Development Tools</h3>
-                        <p>Android Studio, VS Code, Xcode, Postman, Google Play Console, App Store Connect</p>
+                    <div class="skill-item">
+                        <div class="skill-category-title">Tools, Payments & Deployment:</div>
+                        <div class="skill-content">Git/GitHub, CI/CD Pipelines, Postman, Play Console, TestFlight,
+                            Razorpay, Stripe</div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <!-- PROFESSIONAL EXPERIENCE (PAGE 1) -->
+            <section class="section">
                 <h2 class="section-title">Professional Experience</h2>
 
+                <!-- ROLE 1: Innovins Softech -->
                 <div class="experience-item">
                     <div class="experience-header">
                         <div class="job-title">Flutter Developer | <span class="company">Innovins Softech Solution Pvt.
@@ -590,46 +622,45 @@
                         <div class="duration">April 2024 – Present | Remote</div>
                     </div>
                     <ul>
-                        <li>Developed 10+ enterprise applications serving 50,000+ users across healthcare,
-                            entertainment, and retail with 4.5+ star ratings</li>
-                        <li>Mentored 3 junior developers through code reviews and knowledge sharing sessions</li>
-
+                        <li><strong>Engineered and shipped 10+ enterprise mobile apps</strong>
+                            across healthcare, fintech, and retail, consistently maintaining 4.5+ star store
+                            ratings.</li>
+                        <li><strong>Improved app performance and frame rendering by 60%</strong> by eliminating
+                            unnecessary widget rebuilds, implementing lazy pagination, and profiling memory leaks via
+                            Flutter DevTools.</li>
+                        <li><strong>Reduced API failure rates by 40%</strong> by designing a unified networking and
+                            caching framework utilizing Dio interceptors, token refresh flows, and Hive local storage.
+                        </li>
+                        <li><strong>Mentored 3 junior developers</strong> through architecture reviews, test-driven
+                            development practices, and standardized linting guidelines.</li>
                     </ul>
                     <div class="key-projects">
-                        <h4>Key Projects:</h4>
+                        <div class="key-projects-title">Key Production Highlights:</div>
                         <div class="project-item">
-                            <strong>Kookease:</strong> Recipe discovery app with AI-powered recipe generation from
-                            videos, photos, audio, and notes. Features include recipe exploration, favorites, sharing,
-                            and smart shopping lists
+                            <strong>• QiSpine (Healthcare & Telemedicine):</strong> Architected dual doctor-patient apps
+                            with real-time video consultations, appointment booking, patient monitoring, and encrypted
+                            health records.
                         </div>
                         <div class="project-item">
-                            <strong>EasyLife:</strong> On-demand service booking platform for AC repair, installation,
-                            home cleaning, and moving services with real-time scheduling
+                            <strong>• Kookease (Generative AI Recipe Platform):</strong> Integrated multimodal LLM
+                            pipelines (Gemini / OpenAI API) with real-time SSE token streaming, voice/image inputs, and
+                            structured JSON parsing to synthesize interactive recipes.
                         </div>
                         <div class="project-item">
-                            <strong>Impetus:</strong> Wealth management app with financial news insights, proprietary
-                            risk profiling system, and expert consultation scheduling for personalized financial
-                            roadmaps
-                        </div>
-                        <div class="project-item">
-                            <strong>Oasis Floral:</strong> E-commerce platform for floral supplies including foam,
-                            vases, and decoration materials with seamless online shopping experience
-                        </div>
-                        <div class="project-item">
-                            <strong>QiSpine (Doctor & Patient):</strong> Dual healthcare platform with appointment
-                            scheduling, treatment tracking, telemedicine, and patient monitoring for spine care
-                        </div>
-                        <div class="project-item">
-                            <strong>Go2MkT:</strong> Agriculture CRM system with offline-first architecture, lead
-                            management, and workflow automation for farming operations
+                            <strong>• Impetus (Fintech & Wealthtech):</strong> Developed personal wealth management app
+                            with proprietary risk assessment algorithms, live market news streaming, and advisory
+                            consultation scheduling.
                         </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
+            <!-- ================= PAGE 2 BREAK ================= -->
+            <div class="page-break-divider"></div>
 
-            <div class="section">
-
+            <!-- PROFESSIONAL EXPERIENCE (PAGE 2) -->
+            <section class="section">
+                <!-- ROLE 2: NextGen Techno Ventures (Starts on Page 2) -->
                 <div class="experience-item">
                     <div class="experience-header">
                         <div class="job-title">Team Lead | Flutter Developer | <span class="company">NextGen Techno
@@ -637,124 +668,122 @@
                         <div class="duration">June 2023 – March 2024 | Remote</div>
                     </div>
                     <ul>
-                        <li>Led cross-functional team of 4 members (2 backend developers, 1 designer, 1 tester)
-                            delivering projects with 95% sprint completion rate</li>
-                        <li>Managed technical decision-making for project success</li>
+                        <li><strong>Directed a cross-functional agile squad of 4</strong> (2 backend engineers, 1 UI/UX
+                            designer, 1 QA), consistently achieving a <strong>95% sprint completion rate</strong>.</li>
+                        <li><strong>Improved engineering delivery velocity by 30%</strong> by standardizing repository
+                            branching strategies, automated code review pipelines, and shared UI component libraries.
+                        </li>
+                        <li><strong>Led technical architecture decisions</strong>, migrating legacy codebases to Clean
+                            Architecture with BLoC, reducing technical debt and feature regression bugs by 35%.</li>
                     </ul>
                     <div class="key-projects">
-                        <h4>Key Projects:</h4>
+                        <div class="key-projects-title">NextGen Production Highlights:</div>
                         <div class="project-item">
-                            <strong>Mitra Fintech (Agent & Customer Apps):</strong> Dual-platform fintech solution with
-                            secure loan processing, KYC verification, document management, and application tracking
+                            <strong>• Mitra Fintech (Agent & Customer Apps):</strong> Delivered dual-app lending
+                            solution
+                            with digital KYC verification, auto-cropping document scan, credit scoring, and automated
+                            status
+                            tracking.
                         </div>
                         <div class="project-item">
-                            <strong>Green India Retail (User & Delivery Partner Apps):</strong> Multi-role subscription
-                            e-commerce platform with order management, delivery tracking, and payment gateway
-                            integration
+                            <strong>• Green India Retail (Customer & Delivery Partner):</strong> Multi-role subscription
+                            e-commerce platform with automated recurring payments, live GPS order tracking, and
+                            inventory
+                            sync.
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="section">
-
+                <!-- ROLE 3: Celebrare -->
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Flutter Developer Intern | <span class="company">Clebrare</span></div>
-                        <div class="duration">January 2023 – May 2023 | Remote</div>
+                        <div class="job-title">Flutter Developer Intern | <span class="company">Celebrare</span></div>
+                        <div class="duration">May 2023 | Remote</div>
                     </div>
                     <ul>
-                        <li>Implemented 15+ features and resolved 50+ bugs in customer-facing apps</li>
-                        <li>Integrated Firebase Authentication and Firestore for user management</li>
-                        <li>Transformed Figma designs into pixel-perfect Flutter UI components</li>
-                        <li>Collaborated with senior developers on code reviews and best practices</li>
+                        <li><strong>Developed 15+ production features and resolved 50+ bugs</strong> across
+                            consumer-facing mobile applications.</li>
+                        <li><strong>Built 30+ reusable, pixel-perfect custom widgets</strong> from Figma specifications,
+                            accelerating front-end delivery by 25%.</li>
+                        <li><strong>Integrated Firebase Auth, Firestore, and FCM Push Notifications</strong>, boosting
+                            user engagement and retention.</li>
                     </ul>
                 </div>
-            </div>
+                <!-- ROLE 4: Baoiam Innovations -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Flutter Developer Intern | <span class="company">Baoiam Innovations Pvt.
+                                Ltd.</span></div>
+                        <div class="duration">March 2022 – May 2022 | Remote</div>
+                    </div>
+                    <ul>
+                        <li><strong>Developed core cross-platform UI modules and navigation flows</strong> for ed-tech
+                            mobile application using Flutter and Dart.</li>
+                        <li><strong>Integrated REST APIs and authentication services</strong>, ensuring responsive data
+                            rendering and smooth state transitions.</li>
+                        <li><strong>Built 25+ reusable responsive widgets</strong>, ensuring smooth 60 FPS performance
+                            and cross-device compatibility across Android and iOS.</li>
+                    </ul>
+                </div>
+            </section>
 
-            <div class="section">
+            <!-- EDUCATION -->
+            <section class="section">
                 <h2 class="section-title">Education</h2>
-                <div class="education-item">
-                    <h3>Bachelor of Technology in Computer Science Engineering</h3>
-                    <div class="education-details">Uttarakhand Technical University | 2019 – 2023 | 75%</div>
-                    </952 <div class="education-item">
-                    <h3>Senior Secondary (12th) – Science</h3>
-                    <div class="education-details">D.A.V. Public School, Saharanpur | 2019 | 88%</div>
+                <div class="compact-item">
+                    <strong>B.Tech in Computer Science Engineering</strong> &mdash; Uttarakhand Technical University
+                    &nbsp;|&nbsp; 2019 &ndash; 2023
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <!-- SPEAKING EXPERIENCE -->
+            <section class="section">
+                <h2 class="section-title">Speaking Experience</h2>
+                <div class="compact-item">
+                    <strong>Tech Speaker — Flutter Siliguri</strong> &nbsp;|&nbsp; "Building Production-Ready Flutter
+                    Apps" &nbsp;|&nbsp; Jul 2024
+                </div>
+            </section>
+
+            <!-- CERTIFICATIONS -->
+            <section class="section">
                 <h2 class="section-title">Certifications</h2>
-                <div class="certifications-list">
-                    <div class="certification-item">
-                        <h4>Flutter Development Bootcamp</h4>
-                        <p>Udemy | 2022</p>
+                <div class="compact-list">
+                    <div class="compact-item">
+                        <strong>Advanced Flutter Development</strong> &mdash; Coursera &nbsp;|&nbsp; 2023
                     </div>
-                    <div class="certification-item">
-                        <h4>Advanced Flutter Development</h4>
-                        <p>Coursera | 2023</p>
+                    <div class="compact-item">
+                        <strong>Flutter Development Bootcamp</strong> &mdash; Udemy &nbsp;|&nbsp; 2022
                     </div>
-                    <div class="certification-item">
-                        <h4>Git & GitHub Essentials</h4>
-                        <p>Udemy | 2022</p>
+                    <div class="compact-item">
+                        <strong>Git & GitHub Essentials</strong> &mdash; Udemy &nbsp;|&nbsp; 2022
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Key Achievements</h2>
-                <div class="achievements-list">
-                    <div class="achievement-item">
-                        Delivered 15+ production apps serving 50,000+ active users with 4.5+ star ratings
-                    </div>
-                    <div class="achievement-item">
-                        Improved app performance by 60% through lazy loading and efficient state management
-                    </div>
-                    <div class="achievement-item">
-                        Increased user engagement by 35% through Firebase integration and push notifications
-                    </div>
-                    <div class="achievement-item">
-                        Reduced API failure rates by 40% with robust error handling and caching framework
-                    </div>
-                    <div class="achievement-item">
-                        Improved team velocity by 30% as Team Lead through established coding standards
-                    </div>
-                    <div class="achievement-item">
-                        Achieved 95% sprint completion rate while leading cross-functional team of 4 members
-                    </div>
-                </div>
-            </div>
+            <!-- LEADERSHIP & METHODOLOGIES -->
+            <section class="section">
+                <h2 class="section-title">Leadership & Methodologies</h2>
+                <p class="inline-text">
+                    Team Leadership &bull; Agile/Scrum &bull; Code Review &bull; CI/CD Automation &bull; Generative AI
+                    Workflows &bull; App Store Deployment
+                </p>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Soft Skills</h2>
-                <div class="soft-skills-list">
-                    <div class="soft-skill-tag">Team Leadership</div>
-                    <div class="soft-skill-tag">Agile/Scrum</div>
-                    <div class="soft-skill-tag">Code Review</div>
-                    <div class="soft-skill-tag">Client Communication</div>
-                    <div class="soft-skill-tag">Problem Solving</div>
-                    <div class="soft-skill-tag">Mentoring</div>
-                    <div class="soft-skill-tag">Time Management</div>
-                    <div class="soft-skill-tag">Collaboration</div>
-                </div>
-            </div>
-
-            <div class="section">
+            <!-- LANGUAGES -->
+            <section class="section">
                 <h2 class="section-title">Languages</h2>
-                <div class="languages-list">
-                    <div class="language-item">
-                        <strong>Hindi</strong> - Native
-                    </div>
-                    <div class="language-item">
-                        <strong>English</strong> - Fluent
-                    </div>
-                </div>
-            </div>
-        </div>
+                <p class="inline-text">
+                    English (Professional Working Proficiency) &bull; Hindi (Native)
+                </p>
+            </section>
+
+        </main>
     </div>
 
-    <a href="#" class="download-btn" onclick="window.print(); return false;">📥 Download PDF</a>
+    <!-- Floating Print / PDF Button -->
+    <a href="#" class="download-btn" onclick="window.print(); return false;">
+        <span>📥</span> Download PDF
+    </a>
 </body>
 
 </html>
